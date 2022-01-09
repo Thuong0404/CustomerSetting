@@ -1,0 +1,48 @@
+﻿@page "/customerSetting"
+
+
+@if (CustomerSettingDatas == null)
+{
+    <div>Loading</div>
+}
+else
+
+{
+    <div class="tablecustomer">
+        <h1 ><i class="fas fa-cog"></i> Customer Setting</h1>
+        <div class="table-list">
+            <a><i class="fas fa-save"></i> Save</a>
+            <table class="table">
+                <thead class="table-thead">
+                    <tr>
+                        <th>AttributeId</th>
+                        <th>AttributeName</th>
+                        <th>Description</th>
+                        <th>IsDistributorAttribute</th>
+                        <th>IsCustomerAttribute</th>
+                        <th>Used</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    @foreach (var item in CustomerSettingDatas)
+                    {
+                    <tr>
+                        <td>@item.AttributeID</td>
+                        <td>@item.AttributeName </td>
+                        <td>@item.Description</td>
+                        <td>@item.IsCustomerAttribute</td>
+                        <td>@item.IsDistributorAttribute</td>
+                        <td>@item.Used</td>
+                        
+                        <td>
+                            <span class="fas fa-edit" @onclick="() => EditClick(item.Id)"> </span>
+                        </td>
+                       
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
